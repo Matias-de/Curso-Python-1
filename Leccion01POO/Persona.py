@@ -34,14 +34,18 @@ class Persona:
     def mostrarDetalle(self):  #self = this
         print(f'''Persona[Nombre: {self._nombre}, Apellido: {self._apellido}, Edad: {self._edad}]''')
 
+    def __del__(self):
+        print(f'Persona: {self._nombre} {self._apellido} fue eliminado/a')
 
-persona1 = Persona('Carlos', 'Vega', 54)
-persona1.mostrarDetalle()
-#aunque pongas el _ o doble _ es solo una sugerencia, se puede igualmente modificar
-print(persona1.nombre)
-persona1.nombre = 'Roberto'
-persona1.apellido = 'Mouras'
-persona1.edad = 75
-persona1.mostrarDetalle()
+
+if __name__ == '__main__':
+    persona1 = Persona('Carlos', 'Vega', 54)
+    persona1.mostrarDetalle()
+    #aunque pongas el _ o doble _ es solo una sugerencia, se puede igualmente modificar
+    print(persona1.nombre)
+    persona1.nombre = 'Roberto'
+    persona1.apellido = 'Mouras'
+    persona1.edad = 75
+    persona1.mostrarDetalle()
 
 #si un atributo tiene un _ adelante y solo el get (y no el set) se denomina variable de solo lectura, o "Read Only"
