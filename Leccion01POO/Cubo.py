@@ -1,14 +1,38 @@
 class Cubo:
     def __init__(self, ancho, alto, profundo):
-        self.ancho = ancho
-        self.alto = alto
-        self.profundo = profundo
+        self._ancho = ancho
+        self._alto = alto
+        self._profundo = profundo
+
+    @property
+    def ancho(self):
+        return self._ancho
+
+    @ancho.setter
+    def ancho(self, ancho2):
+        self._ancho = ancho2
+
+    @property
+    def alto(self):
+        return self._alto
+
+    @alto.setter
+    def alto(self, alto2):
+        self._alto = alto2
+
+    @property
+    def profundo(self):
+        return self._profundo
+
+    @profundo.setter
+    def profundo(self, profundo2):
+        self._profundo = profundo2
 
     def calcularVolumen(self):
-        return self.ancho * self.profundo * self.alto
+        return self._ancho * self._profundo * self._alto
 
     def toString(self):
-        print(f'CUBO[Ancho: {ancho}, Alto: {alto}, Profundidad: {profundo}]')
+        print(f'CUBO[Ancho: {self._ancho}, Alto: {self._alto}, Profundidad: {self._profundo}]')
 
 
 ancho = int(input('Ingrese el ancho: '))
