@@ -99,7 +99,57 @@ mensaje = f'Nombre: {nombre}, edad: {edad}, Sueldo: {sueldo}'
 
 #metodo print
 
-print(nombre, edad, sueldo, sep=', ')
+#print(nombre, edad, sueldo, sep=', ')
 
+#multiplicacion str
 
+resultado = 5*'Hola'
+#print(f'Resultado: {resultado}')
 
+#multiplicacion de tuplas
+resultado = 5*('hola',10)
+#print(f'Resultado: {resultado}')
+
+#MULTIPLICACION LISTAS
+
+resultado = 10*[0]
+#print(f'Resultado: {resultado}, largo: {len(resultado)}')
+
+#caracteres de escape
+
+resultado = 'Hola \' Mundo'
+#print(f'Resultado: {resultado}')
+
+resultado = 'Se va a eliminar el punto.\b'
+#print(resultado)
+
+#caracter \
+resultado = 'c:\\directorio\\juan'
+#print(resultado)
+
+#raw string
+
+resultado = r'Cadena con \n salto de linea' #la r permite que las \n o lo que sea se procesen como parte de la cadena
+#print(resultado)
+
+#caracteres Unicode
+
+print('Hola\u0020Mundo')
+print(r'Notacion Simple: \u0041', 'significa: \u0041')
+print(r'Notacion extendida: \U00000041', 'significa tambien: \U00000041')
+print(r'Notacion hexadecimal:  \x41', 'significa: \x41') # solo para dos caracteres
+print('Corazon; \u2665')
+print('Cara sonriendo: \U0001f600')
+print('Serpiente: \U0001f40D')
+#ASCII
+
+caracter = chr(65)
+
+print(caracter)
+
+caracter = chr(64)
+
+print(caracter)
+caracter = chr(97)
+
+print(f'a minuscula: {caracter}')
