@@ -134,22 +134,44 @@ resultado = r'Cadena con \n salto de linea' #la r permite que las \n o lo que se
 
 #caracteres Unicode
 
-print('Hola\u0020Mundo')
-print(r'Notacion Simple: \u0041', 'significa: \u0041')
-print(r'Notacion extendida: \U00000041', 'significa tambien: \U00000041')
-print(r'Notacion hexadecimal:  \x41', 'significa: \x41') # solo para dos caracteres
-print('Corazon; \u2665')
-print('Cara sonriendo: \U0001f600')
-print('Serpiente: \U0001f40D')
+#print('Hola\u0020Mundo')
+#print(r'Notacion Simple: \u0041', 'significa: \u0041')
+#print(r'Notacion extendida: \U00000041', 'significa tambien: \U00000041')
+#print(r'Notacion hexadecimal:  \x41', 'significa: \x41') # solo para dos caracteres
+#print('Corazon; \u2665')
+#print('Cara sonriendo: \U0001f600')
+#print('Serpiente: \U0001f40D')
 #ASCII
 
 caracter = chr(65)
 
-print(caracter)
+#print(caracter)
 
 caracter = chr(64)
 
-print(caracter)
+#print(caracter)
 caracter = chr(97)
 
-print(f'a minuscula: {caracter}')
+#print(f'a minuscula: {caracter}')
+
+#caracteres bytes
+
+caracteresEnBytes = b'Hola Mundo'
+#print(caracteresEnBytes)
+mensaje = b'UPython'
+#print(mensaje[1])
+#print(chr(mensaje[1]))
+
+listaCaracteres = mensaje.split()
+#print(listaCaracteres)
+
+#convertir str a bytes
+string = 'Programación con Python'
+#print(f'String original: {string}')
+bytes = string.encode('UTF-8')
+#print(bytes)
+#convertir bytes a str
+string2 = bytes.decode('UTF-8')
+#print(string2)
+#print(string == string2)
+
