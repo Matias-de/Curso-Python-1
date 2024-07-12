@@ -29,7 +29,6 @@ print(diccionario['Nombre'])
 #el get recupera una llave, si no existe NO larga excepcion, se puede devolver un valor en caso de que no exista
 
 print(diccionario.get('Estadisticas', 'No se encontro la llave'))
-
 #setdefault si modifica el diccionario, ademas regresa un valor por default(opcional)
 
 nombre = diccionario.setdefault('Nombres', 'Valor por default')
