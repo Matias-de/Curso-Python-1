@@ -1,8 +1,9 @@
 #GUI = Graphical User Interface
 #Tkinter
+import sys
 import tkinter as tk
 #componentes del tkinter:
-from tkinter import ttk
+from tkinter import ttk, messagebox, Menu
 
 #creamos un objeto usando la clase Tk
 #ventana = tk.Tk()
@@ -41,7 +42,7 @@ ventana = tk.Tk()
 #modificar el tamaño de la ventana (pixeles)
 ventana.geometry('600x400')
 #cambiamos el nombre
-ventana.title('Manejo de Grid')
+ventana.title('Manejo de componentes')
 #configuramos el icono de la aplicacion
 ventana.iconbitmap('argentina.ico')
 
@@ -83,15 +84,80 @@ ventana.iconbitmap('argentina.ico')
 
 #width es la cantidad de caracteres que ocupa la caja de texto
 
-
-entrada1 = ttk.Entry(ventana, width=30, justify=tk.CENTER) #, state='disabled', #, show='*')
+#definimos una variable que podemos modificar despues (set), leer (get)
+#entradaVar1 = tk.StringVar(value='Valor por defecto')
+entrada1 = ttk.Entry(ventana, width=30)  #,textvariable=entradaVar1)  #justify=tk.CENTER)  #, state='disabled', #, show='*')
 entrada1.grid(row=0, column=0)
+#etiqueta (label)
+etiqueta1 = tk.Label(ventana, text='Aqui se mostrara el contenido de la caja de texto')
+etiqueta1.grid(row=1, columnspan=2)
+
+
 #insert agrega un texto
-entrada1.insert(0, 'Ingresa un texto')
-entrada1.insert(tk.END, '.')
-entrada1.config(state='readonly')
+#entrada1.insert(0, 'Ingresa un texto')
+#entrada1.insert(tk.END, '.')
 
 
+#entrada1.config(state='readonly')
+
+#creamos un boton
+
+def enviar():
+    #print(entrada1.get())
+    #boton1.config(text=entrada1.get())
+    #elminar el contenido
+    #entrada1.delete(0, tk.END)
+    #seleccionar el texto de la caja
+    #entrada1.select_range(0, tk.END)
+    #para hacer efectiva la seleccion
+    #entrada1.focus()
+
+    #recuperamos la info a partir de la variable asociada a la caja de texto
+    #boton1.config(text=entradaVar1.get())
+    #modificacion utilizamos la variable de texto y el metodo set
+    #entradaVar1.set('Cambio...')
+    #recuperamos la informacion
+    #modificamos el texto del label
+    etiqueta1.config(text=entrada1.get())
+    #message box
+    mensaje1 = entrada1.get()
+    if mensaje1:
+        messagebox.showinfo('Mensaje informativo', mensaje1 + ' Informativo')
+        #messagebox.showerror('Mensaje Error', mensaje1 + ' Error')
+        #messagebox.showwarning('Mensaje de alerta', mensaje1 + ' alerta')
 
 
+def salir():
+    ventana.quit()
+    ventana.destroy()
+    print('Salimos..')
+    sys.exit()
+
+
+def crearMenu():
+    #configurar el menu principal
+    menuPrincipal = Menu(ventana)
+    #tearoff = False para evitar que se separe el menu de la interfaz
+    subMenuArchivo = Menu(menuPrincipal, tearoff=0)
+    #subMgregamos una nueva opcion al menu de archivo
+    subMenuArchivo.add_command(label='Nuevo')
+    #agregar un separador
+    subMenuArchivo.add_separator()
+    #agregamos la opcion de salir
+    subMenuArchivo.add_command(label='Salir', command=salir)
+    #agregamos el submenu al menu principal
+    menuPrincipal.add_cascade(menu=subMenuArchivo, label='Archivo')
+    #submenu de ayuda
+    subMenuAyuda = Menu(menuPrincipal, tearoff=0)
+    subMenuAyuda.add_command(label='Acerca de')
+    menuPrincipal.add_cascade(menu=subMenuAyuda, label='Ayuda')
+
+    #mostramos el menu en la ventana principal
+    ventana.config(menu=menuPrincipal)
+
+
+boton1 = ttk.Button(ventana, text='Enviar', command=enviar)
+boton1.grid(row=0, column=1)
+
+crearMenu()
 ventana.mainloop()
